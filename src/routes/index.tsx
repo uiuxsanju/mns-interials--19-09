@@ -1,24 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/sections/Hero";
+import { Categories } from "@/components/sections/Categories";
+import { EstimateSection } from "@/components/sections/EstimateSection";
+import { Process } from "@/components/sections/Process";
+import { Solutions } from "@/components/sections/Solutions";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { Gallery } from "@/components/sections/Gallery";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { CtaBanner } from "@/components/sections/CtaBanner";
+import { Faq } from "@/components/sections/Faq";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Aarambh Interiors — Full Home Interiors, Kitchens & Wardrobes";
+const description =
+  "Premium full home interiors, modular kitchens and wardrobes with 3D design, fixed itemised pricing, a 46-day handover and a 10-year warranty.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <Categories />
+      <EstimateSection />
+      <Process />
+      <Solutions />
+      <WhyUs />
+      <Gallery />
+      <Testimonials />
+      <CtaBanner />
+      <Faq />
+    </>
   );
 }
