@@ -47,24 +47,24 @@ export function Header() {
       )}
     >
       <div className="container-x grid h-18 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-3 lg:flex lg:justify-between">
-        <Link to="/" className="flex min-w-0 items-center gap-2.5">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2.5">
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-primary font-display text-lg text-primary-foreground">
             A
           </span>
           <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-lg text-ink">{brand.name}</span>
+            <span className="block truncate font-display text-lg whitespace-nowrap text-ink xl:text-base 2xl:text-lg">{brand.name}</span>
             <span className="hidden text-[0.62rem] tracking-[0.24em] text-muted-foreground uppercase sm:block">
               Interiors &amp; Modular
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 xl:flex">
+        <nav className="hidden items-center gap-4 xl:flex 2xl:gap-6">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="text-sm text-foreground/75 transition-colors hover:text-primary"
+              className="text-sm whitespace-nowrap text-foreground/75 transition-colors hover:text-primary xl:text-[0.82rem] 2xl:text-sm"
               activeProps={{ className: "text-primary" }}
             >
               {item.label}
@@ -75,11 +75,11 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={brand.phoneHref}
-            className="hidden items-center gap-2 text-sm text-foreground/75 transition-colors hover:text-primary lg:flex"
+            className="hidden items-center gap-2 text-sm whitespace-nowrap text-foreground/75 transition-colors hover:text-primary lg:flex xl:hidden 2xl:flex"
           >
             <Phone className="h-4 w-4" /> {brand.phone}
           </a>
-          <Button onClick={openEstimate} className="hidden rounded-full px-5 sm:inline-flex">
+          <Button onClick={openEstimate} className="hidden shrink-0 rounded-full px-5 whitespace-nowrap sm:inline-flex">
             Get Free Estimate
           </Button>
           <Button
