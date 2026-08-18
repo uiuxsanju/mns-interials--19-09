@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BedroomsRouteImport } from './routes/bedrooms'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LivingRoomsRouteImport } from './routes/living-rooms'
+import { Route as ModularKitchensRouteImport } from './routes/modular-kitchens'
+import { Route as WardrobesRouteImport } from './routes/wardrobes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BedroomsRoute = BedroomsRouteImport.update({
+  id: '/bedrooms',
+  path: '/bedrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivingRoomsRoute = LivingRoomsRouteImport.update({
+  id: '/living-rooms',
+  path: '/living-rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModularKitchensRoute = ModularKitchensRouteImport.update({
+  id: '/modular-kitchens',
+  path: '/modular-kitchens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WardrobesRoute = WardrobesRouteImport.update({
+  id: '/wardrobes',
+  path: '/wardrobes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bedrooms': typeof BedroomsRoute
+  '/gallery': typeof GalleryRoute
+  '/living-rooms': typeof LivingRoomsRoute
+  '/modular-kitchens': typeof ModularKitchensRoute
+  '/wardrobes': typeof WardrobesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bedrooms': typeof BedroomsRoute
+  '/gallery': typeof GalleryRoute
+  '/living-rooms': typeof LivingRoomsRoute
+  '/modular-kitchens': typeof ModularKitchensRoute
+  '/wardrobes': typeof WardrobesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bedrooms': typeof BedroomsRoute
+  '/gallery': typeof GalleryRoute
+  '/living-rooms': typeof LivingRoomsRoute
+  '/modular-kitchens': typeof ModularKitchensRoute
+  '/wardrobes': typeof WardrobesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bedrooms'
+    | '/gallery'
+    | '/living-rooms'
+    | '/modular-kitchens'
+    | '/wardrobes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bedrooms'
+    | '/gallery'
+    | '/living-rooms'
+    | '/modular-kitchens'
+    | '/wardrobes'
+  id:
+    | '__root__'
+    | '/'
+    | '/bedrooms'
+    | '/gallery'
+    | '/living-rooms'
+    | '/modular-kitchens'
+    | '/wardrobes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BedroomsRoute: typeof BedroomsRoute
+  GalleryRoute: typeof GalleryRoute
+  LivingRoomsRoute: typeof LivingRoomsRoute
+  ModularKitchensRoute: typeof ModularKitchensRoute
+  WardrobesRoute: typeof WardrobesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bedrooms': {
+      id: '/bedrooms'
+      path: '/bedrooms'
+      fullPath: '/bedrooms'
+      preLoaderRoute: typeof BedroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/living-rooms': {
+      id: '/living-rooms'
+      path: '/living-rooms'
+      fullPath: '/living-rooms'
+      preLoaderRoute: typeof LivingRoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/modular-kitchens': {
+      id: '/modular-kitchens'
+      path: '/modular-kitchens'
+      fullPath: '/modular-kitchens'
+      preLoaderRoute: typeof ModularKitchensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wardrobes': {
+      id: '/wardrobes'
+      path: '/wardrobes'
+      fullPath: '/wardrobes'
+      preLoaderRoute: typeof WardrobesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BedroomsRoute: BedroomsRoute,
+  GalleryRoute: GalleryRoute,
+  LivingRoomsRoute: LivingRoomsRoute,
+  ModularKitchensRoute: ModularKitchensRoute,
+  WardrobesRoute: WardrobesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
