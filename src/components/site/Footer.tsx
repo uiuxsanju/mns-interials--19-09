@@ -30,7 +30,7 @@ const cols = [
       { label: "Kitchen Ideas", to: "/modular-kitchens" },
       { label: "Bedroom Ideas", to: "/bedrooms" },
       { label: "Wardrobe Ideas", to: "/wardrobes" },
-      { label: "FAQ", to: "/" as const, hash: "faq" },
+      { label: "FAQ", to: "/contact" },
     ],
   },
 ];
@@ -74,7 +74,6 @@ export function Footer() {
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    hash={"hash" in l ? (l.hash as string) : undefined}
                     className="text-muted-foreground transition-colors hover:text-primary"
                   >
                     {l.label}
