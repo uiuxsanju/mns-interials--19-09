@@ -10,8 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BathroomsRouteImport } from './routes/bathrooms'
 import { Route as BedroomsRouteImport } from './routes/bedrooms'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EstimateRouteImport } from './routes/estimate'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HomeOfficeRouteImport } from './routes/home-office'
 import { Route as LivingRoomsRouteImport } from './routes/living-rooms'
 import { Route as ModularKitchensRouteImport } from './routes/modular-kitchens'
 import { Route as WardrobesRouteImport } from './routes/wardrobes'
@@ -21,14 +26,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BathroomsRoute = BathroomsRouteImport.update({
+  id: '/bathrooms',
+  path: '/bathrooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BedroomsRoute = BedroomsRouteImport.update({
   id: '/bedrooms',
   path: '/bedrooms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstimateRoute = EstimateRouteImport.update({
+  id: '/estimate',
+  path: '/estimate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeOfficeRoute = HomeOfficeRouteImport.update({
+  id: '/home-office',
+  path: '/home-office',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LivingRoomsRoute = LivingRoomsRouteImport.update({
@@ -49,16 +79,26 @@ const WardrobesRoute = WardrobesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathrooms': typeof BathroomsRoute
   '/bedrooms': typeof BedroomsRoute
+  '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/gallery': typeof GalleryRoute
+  '/home-office': typeof HomeOfficeRoute
   '/living-rooms': typeof LivingRoomsRoute
   '/modular-kitchens': typeof ModularKitchensRoute
   '/wardrobes': typeof WardrobesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathrooms': typeof BathroomsRoute
   '/bedrooms': typeof BedroomsRoute
+  '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/gallery': typeof GalleryRoute
+  '/home-office': typeof HomeOfficeRoute
   '/living-rooms': typeof LivingRoomsRoute
   '/modular-kitchens': typeof ModularKitchensRoute
   '/wardrobes': typeof WardrobesRoute
@@ -66,8 +106,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/bathrooms': typeof BathroomsRoute
   '/bedrooms': typeof BedroomsRoute
+  '/contact': typeof ContactRoute
+  '/estimate': typeof EstimateRoute
   '/gallery': typeof GalleryRoute
+  '/home-office': typeof HomeOfficeRoute
   '/living-rooms': typeof LivingRoomsRoute
   '/modular-kitchens': typeof ModularKitchensRoute
   '/wardrobes': typeof WardrobesRoute
@@ -76,24 +121,39 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/bathrooms'
     | '/bedrooms'
+    | '/contact'
+    | '/estimate'
     | '/gallery'
+    | '/home-office'
     | '/living-rooms'
     | '/modular-kitchens'
     | '/wardrobes'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/bathrooms'
     | '/bedrooms'
+    | '/contact'
+    | '/estimate'
     | '/gallery'
+    | '/home-office'
     | '/living-rooms'
     | '/modular-kitchens'
     | '/wardrobes'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/bathrooms'
     | '/bedrooms'
+    | '/contact'
+    | '/estimate'
     | '/gallery'
+    | '/home-office'
     | '/living-rooms'
     | '/modular-kitchens'
     | '/wardrobes'
@@ -101,8 +161,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BathroomsRoute: typeof BathroomsRoute
   BedroomsRoute: typeof BedroomsRoute
+  ContactRoute: typeof ContactRoute
+  EstimateRoute: typeof EstimateRoute
   GalleryRoute: typeof GalleryRoute
+  HomeOfficeRoute: typeof HomeOfficeRoute
   LivingRoomsRoute: typeof LivingRoomsRoute
   ModularKitchensRoute: typeof ModularKitchensRoute
   WardrobesRoute: typeof WardrobesRoute
@@ -117,6 +182,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bathrooms': {
+      id: '/bathrooms'
+      path: '/bathrooms'
+      fullPath: '/bathrooms'
+      preLoaderRoute: typeof BathroomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bedrooms': {
       id: '/bedrooms'
       path: '/bedrooms'
@@ -124,11 +203,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BedroomsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estimate': {
+      id: '/estimate'
+      path: '/estimate'
+      fullPath: '/estimate'
+      preLoaderRoute: typeof EstimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-office': {
+      id: '/home-office'
+      path: '/home-office'
+      fullPath: '/home-office'
+      preLoaderRoute: typeof HomeOfficeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/living-rooms': {
@@ -157,8 +257,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BathroomsRoute: BathroomsRoute,
   BedroomsRoute: BedroomsRoute,
+  ContactRoute: ContactRoute,
+  EstimateRoute: EstimateRoute,
   GalleryRoute: GalleryRoute,
+  HomeOfficeRoute: HomeOfficeRoute,
   LivingRoomsRoute: LivingRoomsRoute,
   ModularKitchensRoute: ModularKitchensRoute,
   WardrobesRoute: WardrobesRoute,
